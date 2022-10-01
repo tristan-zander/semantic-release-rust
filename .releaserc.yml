@@ -11,7 +11,10 @@ branches:
 plugins:
     - '@semantic-release/commit-analyzer'
     - '@semantic-release/release-notes-generator'
-    - '@semantic-release/github'
+    - - '@semantic-release/github'
+      - assets:
+        - path: target/release/semantic-release-rust
+          label: "semantic-release-rust binary"
     - - '@semantic-release/exec'
       - verifyConditionsCmd: "./target/release/semantic-release-rust verify-conditions"
         prepareCmd: "./target/release/semantic-release-rust prepare ${nextRelease.version}"
